@@ -1,0 +1,27 @@
+@baseUrl = http://localhost:4000
+
+GET {{baseUrl}}/products
+###
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "product_name": "Bread",
+  "product_price":"1.15"
+}
+
+###
+GET {{baseUrl}}/product/4
+
+
+###
+DELETE {{baseUrl}}/product/5
+
+###
+PUT {{baseUrl}}/product/77
+Content-Type: application/json
+
+{
+  "product_name": "TV",
+  "product_price": "77.88"
+}
