@@ -1,4 +1,4 @@
-export const queries = {
+export const ProductQueries = {
   getAllProducts: 'SELECT * FROM Products',
   createProduct: 'INSERT INTO Products VALUES ( @product_name, @product_price)',
   getProduct: 'SELECT * FROM Products WHERE product_id = @product_id',

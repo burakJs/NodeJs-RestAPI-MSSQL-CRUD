@@ -1,7 +1,8 @@
 import express from 'express';
-import config from './config.js';
+import { appConfig } from './config.js';
 
 import productsRoutes from './routes/products.routes.js';
+import authRoutes from './routes/auth.routes.js';
 
 const app = express();
 
@@ -9,8 +10,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.set('port', config.PORT);
+app.set('port', appConfig.PORT);
 
 app.use(productsRoutes);
+app.use(authRoutes);
 
 export default app;

@@ -1,2 +1,4 @@
 export * from './connection.js';
-export { queries } from './querys.js';
+export { ProductQueries } from './query/productQueries.js';
+export { AuthQueries } from './query/authQueries.js';
+export { appConfig } from '../config.js';

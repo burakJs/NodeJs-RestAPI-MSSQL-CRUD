@@ -1,10 +1,10 @@
-import { getConnection, sql, queries } from '../database/index.js';
+import { getConnection, sql, ProductQueries } from '../database/index.js';
 
 const pool = await getConnection();
 
 export const getProducts = async (req, res) => {
   try {
-    const result = await pool.request().query(queries.getAllProducts);
+    const result = await pool.request().query(ProductQueries.getAllProducts);
     res.json({ data: result.recordset, isSuccess: true });
   } catch (error) {
     res.status(500);
@@ -24,7 +24,7 @@ export const createProducts = async (req, res) => {
       .request()
       .input('product_name', sql.VarChar, product_name)
       .input('product_price', sql.Money, product_price)
-      .query(queries.createProduct);
+      .query(ProductQueries.createProduct);
     return res.json({ data: { product_name, product_price }, isSuccess: true });
   } catch (error) {
     return res.json({ error: error.message, isSuccess: false });
@@ -37,7 +37,7 @@ export const getProductById = async (req, res) => {
     const result = await pool
       .request()
       .input('product_id', sql.Int, id)
-      .query(queries.getProduct);
+      .query(ProductQueries.getProduct);
     if (result['rowsAffected'][0] == 0) {
       throw { message: 'Data is not found' };
     }
@@ -53,7 +53,7 @@ export const deleteProductById = async (req, res) => {
     await pool
       .request()
       .input('product_id', sql.Int, id)
-      .query(queries.deleteProduct);
+      .query(ProductQueries.deleteProduct);
     if (result['rowsAffected'][0] == 0) {
       throw { message: 'Data is not found' };
     }
@@ -77,7 +77,7 @@ export const updateProductById = async (req, res) => {
       .input('product_name', sql.VarChar, product_name)
       .input('product_price', sql.Money, product_price)
       .input('product_id', sql.Money, id)
-      .query(queries.updateProduct);
+      .query(ProductQueries.updateProduct);
     if (result['rowsAffected'][0] == 0) {
       throw { message: 'Data is not found' };
     }

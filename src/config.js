@@ -1,11 +1,11 @@
 import { config } from 'dotenv';
 
 config();
-
-export default {
+export const appConfig = {
   PORT: process.env.PORT || 3000,
-  USER: process.env.USER,
+  USER: process.env.USERNAME,
   PASSWORD: process.env.PASSWORD,
   SERVER: process.env.SERVER,
   DATABASE: process.env.DATABASE,
+  SIZE: Number(process.env.SIZE),
 };
