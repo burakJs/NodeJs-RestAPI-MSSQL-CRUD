@@ -4,4 +4,5 @@ export const AuthQueries = {
     'SELECT COUNT(*) AS UserCount FROM Users WHERE user_name = @user_name',
   login:
     'SELECT * FROM Users WHERE user_name = @user_name AND user_password = @user_password',
+  getOneUser: 'SELECT * FROM Users WHERE user_name = @user_name',
 };

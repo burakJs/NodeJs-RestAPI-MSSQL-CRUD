@@ -8,4 +8,5 @@ export const appConfig = {
   SERVER: process.env.SERVER,
   DATABASE: process.env.DATABASE,
   SIZE: Number(process.env.SIZE),
+  SECRET_KEY: process.env.SECRET_KEY,
 };

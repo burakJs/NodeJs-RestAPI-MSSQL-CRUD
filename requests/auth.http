@@ -4,6 +4,15 @@ POST {{baseUrl}}/register
 Content-Type: application/json
 
 {
-  "user_name":"burak3",
+  "user_name":"burak4",
+  "user_password":"burak3333"
+}
+
+###
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "user_name":"burak4",
   "user_password":"burak3333"
 }
